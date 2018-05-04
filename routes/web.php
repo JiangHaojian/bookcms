@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/booklist', function () {
+    return view('layouts/booklist');
+});
+Route::get('/loanlist', function () {
+    return view('layouts/loanlist');
+});
+Route::get('/userlist', function () {
+    return view('layouts/userlist');
+});
+Route::get('/addbook', function () {
+    return view('layouts/addbook');
+});
