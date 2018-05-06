@@ -14,9 +14,7 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/booklist', function () {
-    return view('layouts/booklist');
-});
+Route::get('/booklist', 'BookController@booklist');
 Route::get('/loanlist', function () {
     return view('layouts/loanlist');
 });
@@ -26,3 +24,7 @@ Route::get('/userlist', function () {
 Route::get('/addbook', function () {
     return view('layouts/addbook');
 });
+Route::post('/savebook', 'BookController@saveBook');
+Route::get('/editbook/{id}', 'BookController@editbook');
+Route::post('/updatebook', 'BookController@updatebook');
+Route::get('/deletebook/{id}', 'BookController@deletebook');

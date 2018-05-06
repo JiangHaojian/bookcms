@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
-    <link rel="stylesheet" href="assets/css/admin.css">
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/app.js"></script>
     <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
 </head>
 <body>
@@ -99,9 +99,9 @@
 
         <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：清风抚雪</div>
         <div class="sideMenu">
-            <h3 class="am-icon-flag"><em></em> <a href="#">商品管理</a></h3>
+            <h3 class="am-icon-flag"><em></em> <a href="#">书籍管理</a></h3>
             <ul>
-                <li><a href="/booklist">书籍管理</a></li>
+                <li><a href="/booklist">书籍列表</a></li>
                 <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/addbook">添加书籍</a></li>
                 <li>商品分类</li>
                 <li>用户评论</li>

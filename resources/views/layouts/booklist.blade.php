@@ -63,63 +63,42 @@
             <thead>
             <tr class="am-success">
                 <th class="table-check"><input type="checkbox"/></th>
-                <th class="table-id">排序</th>
                 <th class="table-id">ID</th>
-                <th class="table-title">标题</th>
-                <th class="table-type">类别</th>
-                <th class="table-author am-hide-sm-only">上架/下架 <i class="am-icon-check am-text-warning"></i> <i
-                            class="am-icon-close am-text-primary"></i></th>
-                <th class="table-date am-hide-sm-only">修改日期</th>
+                <th class="table-id">书名</th>
+                <th class="table-title">出版社</th>
+                <th class="table-type">作者</th>
+                <th class="table-type">语种</th>
+                <th class="table-type">描述</th>
+                <th class="table-date am-hide-sm-only">出版日期</th>
+                <th class="table-type">图片</th>
                 <th width="163px" class="table-set">操作</th>
             </tr>
             </thead>
             <tbody>
+
+            @foreach($books as $book)
             <tr>
                 <td><input type="checkbox"/></td>
-                <td><input type="text" class="am-form-field am-radius am-input-sm"/></td>
-                <td>14</td>
-                <td><a href="#">Business management</a></td>
-                <td>default</td>
-                <td class="am-hide-sm-only"><i class="am-icon-check am-text-warning"></i></td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                <td>{{$book->book_id}}</td>
+                <td>{{$book->name}}</td>
+                <td>{{$book->publisher}}</td>
+                <td>{{$book->author}}</td>
+                <td class="am-hide-sm-only">{{$book->language}}</td>
+                <td class="am-hide-sm-only">{{$book->desc}}</td>
+                <td>{{$book->publish_time}}</td>
+                <td><img src="{{$book->img}}" width="10px" height="10px"></td>
                 <td>
                     <div class="am-btn-toolbar">
                         <div class="am-btn-group am-btn-group-xs">
-                            <button class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span
-                                        class="am-icon-search"></span></button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"><span
-                                        class="am-icon-pencil-square-o"></span></button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-warning  am-round"><span
-                                        class="am-icon-copy"></span></button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round"><span
-                                        class="am-icon-trash-o"></span></button>
+                            <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" href="/editbook/{{$book->book_id}}"><span
+                                        class="am-icon-pencil-square-o"></span></a>
+                            <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round" href="/deletebook/{{$book->book_id}}"><span
+                                        class="am-icon-trash-o"></span></a>
                         </div>
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td><input type="text" class="am-form-field am-radius am-input-sm"/></td>
-                <td>15</td>
-                <td><a href="#">Business management</a></td>
-                <td>default</td>
-                <td class="am-hide-sm-only"><i class="am-icon-close am-text-primary"></i></td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                    <div class="am-btn-toolbar">
-                        <div class="am-btn-group am-btn-group-xs">
-                            <button class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span
-                                        class="am-icon-search"></span></button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"><span
-                                        class="am-icon-pencil-square-o"></span></button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-warning  am-round"><span
-                                        class="am-icon-copy"></span></button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round"><span
-                                        class="am-icon-trash-o"></span></button>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+            @endforeach
             </tbody>
         </table>
 

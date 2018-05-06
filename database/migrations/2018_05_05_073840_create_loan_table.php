@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateLoanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('loan', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('uid')->comment('用户id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->tinyInteger('type')->comment('用户权限类型:0超管1管理员2用户');
-            $table->rememberToken();
+            $table->integer('book_id')->comment('书籍id');
+            $table->integer('num')->comment('借阅数量');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('loan');
     }
 }
