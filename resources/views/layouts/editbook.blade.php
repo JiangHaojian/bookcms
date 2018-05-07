@@ -49,7 +49,9 @@
 
             <div class="am-form-group am-cf">
                 <div class="zuo">图片：</div>
-                <img src="{{$book['img']}}" width="50px" height="50px">
+                @if(isset($book['img']))
+                    <img src="{{$book['img']}}" width="50px" height="50px">
+                @endif
                 <div class="you" style="height: 45px;">
                     <input type="file" name="img" id="doc-ipt-file-1" accept="image/png, image/jpeg, image/gif, image/jpg">
                     <p class="am-form-help">请选择要上传的图片...</p>

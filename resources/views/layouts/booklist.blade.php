@@ -86,13 +86,18 @@
                 <td class="am-hide-sm-only">{{$book->language}}</td>
                 <td class="am-hide-sm-only">{{$book->desc}}</td>
                 <td>{{$book->publish_time}}</td>
-                <td><img src="{{$book->img}}" width="10px" height="10px"></td>
+                <td>
+                    @if(isset($book->img))
+                        <img src="{{$book->img}}" width="20px" height="20px">
+                    @endif
+                </td>
                 <td>
                     <div class="am-btn-toolbar">
                         <div class="am-btn-group am-btn-group-xs">
-                            <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" href="/editbook/{{$book->book_id}}"><span
+                            <a class="am-btn am-btn-default am-btn-xs am-text-success am-round" title="借阅" href="/loan/{{$book->book_id}}"><span class="am-icon-search"></span> </a>
+                            <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" href="/editbook/{{$book->book_id}}" title="编辑"><span
                                         class="am-icon-pencil-square-o"></span></a>
-                            <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round" href="/deletebook/{{$book->book_id}}"><span
+                            <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round" href="/deletebook/{{$book->book_id}}" title="删除"><span
                                         class="am-icon-trash-o"></span></a>
                         </div>
                     </div>

@@ -1,9 +1,9 @@
 @extends('layouts.base')
 @section('admin-biaogelist')
     <div class="listbiaoti am-cf">
-        <ul class="am-icon-flag on"> 订单列表</ul>
+        <ul class="am-icon-flag on"> 借还管理</ul>
 
-        <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">商品列表</a></dl>
+        <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">借阅管理</a></dl>
 
         <dl>
             <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" > 补充线订单</button>
@@ -39,68 +39,38 @@
 
 
     <form class="am-form am-g">
-        <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped am-table-hover">
+        <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
             <thead>
             <tr class="am-success">
-                <th class="table-check"><input type="checkbox" /></th>
-
-                <th class="table-id">ID</th>
-                <th class="table-title">商品名称</th>
-                <th class="table-type">购买数量</th>
-                <th class="table-author am-hide-sm-only">购买人</th>
-                <th class="table-author am-hide-sm-only">地址</th>
-                <th class="table-date am-hide-sm-only">购买日期</th>
-                <th width="130px" class="table-set">操作</th>
+                <th class="table-check"><input type="checkbox"/></th>
+                <th class="table-id">书名</th>
+                <th class="table-title">出版社</th>
+                <th class="table-type">作者</th>
+                <th class="table-type">数量</th>
+                <th width="163px" class="table-set">操作</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><input type="checkbox" /></td>
 
-                <td>14</td>
-                <td><a href="#">Business management</a></td>
-                <td>3件 （消费455个积分）</td>
-                <td class="am-hide-sm-only">访问</td><td class="am-hide-sm-only">访问</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-
-
-
-                    <div class="am-btn-toolbar">
-                        <div class="am-btn-group am-btn-group-xs">
-                            <button class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看订单详情"></span> </button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: '#my-popups'}" title="修改订单"><span class="am-icon-pencil-square-o"></span></button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除订单"><span class="am-icon-trash-o" ></span></button>
+            @foreach($loans as $loan)
+                <tr>
+                    <td><input type="checkbox"/></td>
+                    <td>{{$loan->name}}</td>
+                    <td>{{$loan->publisher}}</td>
+                    <td>{{$loan->author}}</td>
+                    <td>{{$loan->num}}</td>
+                    <td>
+                        <div class="am-btn-toolbar">
+                            <div class="am-btn-group am-btn-group-xs">
+                                <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" href=""><span
+                                            class="am-icon-pencil-square-o"></span></a>
+                                <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round" href=""><span
+                                            class="am-icon-trash-o"></span></a>
+                            </div>
                         </div>
-                    </div>
-
-
-
-
-
-
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" /></td>
-
-                <td>15</td>
-                <td><a href="#">Business management</a></td>
-                <td>default</td>
-                <td class="am-hide-sm-only"><i class="am-icon-close am-text-primary"></i></td><td class="am-hide-sm-only">访问</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-
-                    <div class="am-btn-toolbar">
-                        <div class="am-btn-group am-btn-group-xs">
-                            <button class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看订单详情"></span> </button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: '#my-popups'}" title="修改订单"><span class="am-icon-pencil-square-o"></span></button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除订单"><span class="am-icon-trash-o" ></span></button>
-                        </div>
-                    </div>
-
-                </td>
-            </tr>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
 
@@ -126,9 +96,7 @@
         </ul>
 
 
-
-
-        <hr />
+        <hr/>
         <p>注：.....</p>
     </form>
 

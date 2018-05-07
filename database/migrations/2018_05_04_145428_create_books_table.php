@@ -19,11 +19,11 @@ class CreateBooksTable extends Migration
             $table->string('publisher',50)->comment('出版社');
             $table->string('author',50)->comment('作者');
             $table->string('name',50)->comment('书名');
-            $table->timestamp('publish_time')->comment('出版日期');
+            $table->timestamp('publish_time')->nullable()->comment('出版日期');
             $table->string('language',50)->comment('语种');
-            $table->string('img')->comment('图片');
+            $table->string('img')->nullable()->comment('图片');
             $table->integer('stock')->comment('库存');
-            $table->text('desc')->comment('描述');
+            $table->text('desc')->nullable()->comment('描述');
             $table->timestamps();
         });
     }

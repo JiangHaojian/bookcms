@@ -30,7 +30,7 @@
 
 <body>
 <header class="am-topbar admin-header">
-    <div class="am-topbar-brand"><img src="assets/i/logo.png"></div>
+    <div class="am-topbar-brand"><img src="/assets/i/logo.png"></div>
 
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
@@ -97,7 +97,17 @@
 
     <div class="nav-navicon admin-main admin-sidebar">
 
-        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：清风抚雪</div>
+        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;">
+            @if(Auth::user())
+                欢迎你：{{Auth::user()->name}}
+                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"><a href="/logout">退出</a></button>
+            @else
+                &nbsp;&nbsp;&nbsp;
+                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"><a href="/login">登录</a></button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"><a href="/register">注册</a></button>
+            @endif
+        </div>
         <div class="sideMenu">
             <h3 class="am-icon-flag"><em></em> <a href="#">书籍管理</a></h3>
             <ul>
@@ -108,9 +118,9 @@
                 <li>商品回收站</li>
                 <li>库存管理 </li>
             </ul>
-            <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
+            <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 借阅管理</a></h3>
             <ul>
-                <li><a href="/loanlist">借还管理</a></li>
+                <li><a href="/loanlist">借还书籍</a></li>
                 <li>合并订单</li>
                 <li>订单打印</li>
                 <li>添加订单</li>
@@ -215,13 +225,13 @@
 <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="assets/js/polyfill/rem.min.js"></script>
-<script src="assets/js/polyfill/respond.min.js"></script>
-<script src="assets/js/amazeui.legacy.js"></script>
+<script src="/assets/js/polyfill/rem.min.js"></script>
+<script src="/assets/js/polyfill/respond.min.js"></script>
+<script src="/assets/js/amazeui.legacy.js"></script>
 <![endif]-->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="assets/js/amazeui.min.js"></script>
+<script src="/assets/js/amazeui.min.js"></script>
 <!--<![endif]-->
 
 

@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', function () {
     return view('index');
 });
@@ -28,3 +30,8 @@ Route::post('/savebook', 'BookController@saveBook');
 Route::get('/editbook/{id}', 'BookController@editbook');
 Route::post('/updatebook', 'BookController@updatebook');
 Route::get('/deletebook/{id}', 'BookController@deletebook');
+Route::get('/loanlist', 'BookController@loanlist');
+Route::get('/loan/{id}', 'BookController@loan');
+Route::group(['middleware' => ['auth'],'namespace'=>'Auth'],function (){
+    Route::get('/logout', 'LoginController@logout');
+});
