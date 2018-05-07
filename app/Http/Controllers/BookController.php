@@ -59,7 +59,7 @@ class BookController extends Controller
     }
 
     public function loanlist(){
-        $loans = Loan::all();
+        $loans = Loan::join('books','loans.book_id','=','books.book_id')->where('uid','=',Auth::user()->id)->select('loans.book_id','name','publisher','author','num','loans.created_at')->get();
         return view('layouts.loanlist')->with('loans',$loans);
     }
 
@@ -69,6 +69,14 @@ class BookController extends Controller
         $loan->book_id = $id;
         $loan->num = 1;
         $loan->save();
-        return redirect('booklist');
+        return redirect('loanlist');
+    }
+
+    public function unloan($id,$time){
+        $loan = Loan::where('book_id',$id)
+            ->where('created_at',date('Y-m-d H:i:s',$time))
+            ->first();
+        $loan->delete();
+        return redirect('loanlist');
     }
 }

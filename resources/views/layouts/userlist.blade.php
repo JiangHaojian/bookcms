@@ -6,20 +6,9 @@
         <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">商品列表</a></dl>
 
         <dl>
-            <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" > 手动添加会员</button>
+            <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"> 手动添加会员</button>
         </dl>
         <!--这里打开的是新页面-->
-
-
-
-
-
-
-
-
-
-
-
 
 
     </div>
@@ -42,65 +31,54 @@
         <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
             <thead>
             <tr class="am-success">
-                <th class="table-check"><input type="checkbox" /></th>
-
-                <th class="table-id">ID</th>
-                <th class="table-title">会员名称</th>
-                <th class="table-type">会员等级</th>
-                <th class="table-author am-hide-sm-only">会员积分</th>
+                <th class="table-id">用户ID</th>
+                <th class="table-title">用户名称</th>
+                <th class="table-type">用户等级</th>
+                <th class="table-author am-hide-sm-only">用户邮箱</th>
                 <th class="table-author am-hide-sm-only">注册日期</th>
-                <th class="table-date am-hide-sm-only">最近消费</th>
                 <th width="130px" class="table-set">操作</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><input type="checkbox" /></td>
 
-                <td>14</td>
-                <td><a href="#">Business management</a></td>
-                <td>3件 （消费455个积分）</td>
-                <td class="am-hide-sm-only">访问</td><td class="am-hide-sm-only">访问</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-
-
-
-                    <div class="am-btn-toolbar">
-                        <div class="am-btn-group am-btn-group-xs">
-                            <button class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看订单详情"></span> </button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: '#my-popups'}" title="修改订单"><span class="am-icon-pencil-square-o"></span></button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除订单"><span class="am-icon-trash-o" ></span></button>
+            @foreach($users as $user)
+                <tr>
+                    <td>{{$user->id}}</td>
+                    <td>{{$user->name}}</td>
+                    <td class="am-hide-sm-only">
+                        @if($user->type == 0)
+                            超管
+                        @elseif($user->type == 1)
+                            管理员
+                        @else
+                            用户
+                        @endif
+                    </td>
+                    <td class="am-hide-sm-only">{{$user->email}}</td>
+                    <td class="am-hide-sm-only">{{$user->created_at}}</td>
+                    <td>
+                        <div class="am-btn-toolbar">
+                            <div class="am-btn-group am-btn-group-xs">
+                                @if(Auth::user()->type == 0)
+                                    @if($user->type != 0)
+                                        <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"
+                                           data-am-modal="{target: '#my-popups'}" title="提升权限"
+                                           href="/uplevel/{{$user->id}}"><span
+                                                    class="am-icon-pencil-square-o"></span></a>
+                                        @if(Auth::user()->type == 0)
+                                            <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round"
+                                               title="删除权限" href="/downlevel/{{$user->id}}">
+                                                <span class="am-icon-trash-o"></span>
+                                            </a>
+                                        @endif
+                                    @endif
+                                @endif
+                            </div>
                         </div>
-                    </div>
+                    </td>
+                </tr>
+            @endforeach
 
-
-
-
-
-
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" /></td>
-
-                <td>15</td>
-                <td><a href="#">Business management</a></td>
-                <td>default</td>
-                <td class="am-hide-sm-only"><i class="am-icon-close am-text-primary"></i></td><td class="am-hide-sm-only">访问</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-
-                    <div class="am-btn-toolbar">
-                        <div class="am-btn-group am-btn-group-xs">
-                            <button class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看订单详情"></span> </button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: '#my-popups'}" title="修改订单"><span class="am-icon-pencil-square-o"></span></button>
-                            <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除订单"><span class="am-icon-trash-o" ></span></button>
-                        </div>
-                    </div>
-
-                </td>
-            </tr>
             </tbody>
         </table>
 
@@ -126,9 +104,7 @@
         </ul>
 
 
-
-
-        <hr />
+        <hr/>
         <p>注：.....</p>
     </form>
 

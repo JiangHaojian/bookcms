@@ -68,6 +68,7 @@
                 <th class="table-title">出版社</th>
                 <th class="table-type">作者</th>
                 <th class="table-type">语种</th>
+                <th class="table-type">库存</th>
                 <th class="table-type">描述</th>
                 <th class="table-date am-hide-sm-only">出版日期</th>
                 <th class="table-type">图片</th>
@@ -84,6 +85,7 @@
                 <td>{{$book->publisher}}</td>
                 <td>{{$book->author}}</td>
                 <td class="am-hide-sm-only">{{$book->language}}</td>
+                <td>{{$book->stock}}</td>
                 <td class="am-hide-sm-only">{{$book->desc}}</td>
                 <td>{{$book->publish_time}}</td>
                 <td>

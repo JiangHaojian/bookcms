@@ -32,6 +32,10 @@ Route::post('/updatebook', 'BookController@updatebook');
 Route::get('/deletebook/{id}', 'BookController@deletebook');
 Route::get('/loanlist', 'BookController@loanlist');
 Route::get('/loan/{id}', 'BookController@loan');
+Route::get('/unloan/{id}/{time}', 'BookController@unloan');
 Route::group(['middleware' => ['auth'],'namespace'=>'Auth'],function (){
     Route::get('/logout', 'LoginController@logout');
 });
+Route::get('/userlist', 'UserController@userlist');
+Route::get('/uplevel/{id}', 'UserController@uplevel');
+Route::get('/downlevel/{id}', 'UserController@downlevel');

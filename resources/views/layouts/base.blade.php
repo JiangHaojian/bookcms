@@ -121,19 +121,10 @@
             <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 借阅管理</a></h3>
             <ul>
                 <li><a href="/loanlist">借还书籍</a></li>
-                <li>合并订单</li>
-                <li>订单打印</li>
-                <li>添加订单</li>
-                <li>发货单列表</li>
-                <li>换货单列表</li>
             </ul>
             <h3 class="am-icon-users"><em></em> <a href="#">用户管理</a></h3>
             <ul>
                 <li><a href="/userlist">用户列表</a> </li>
-                <li>未激活会员</li>
-                <li>团队系谱图</li>
-                <li>会员推荐图</li>
-                <li>推荐列表</li>
             </ul>
             <h3 class="am-icon-volume-up"><em></em> <a href="#">信息通知</a></h3>
             <ul>

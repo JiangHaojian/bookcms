@@ -6,20 +6,9 @@
         <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">借阅管理</a></dl>
 
         <dl>
-            <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" > 补充线订单</button>
+            <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"> 补充线订单</button>
         </dl>
         <!--这里打开的是新页面-->
-
-
-
-
-
-
-
-
-
-
-
 
 
     </div>
@@ -47,29 +36,29 @@
                 <th class="table-title">出版社</th>
                 <th class="table-type">作者</th>
                 <th class="table-type">数量</th>
+                <th class="table-date am-hide-sm-only">借阅日期</th>
                 <th width="163px" class="table-set">操作</th>
             </tr>
             </thead>
             <tbody>
 
             @foreach($loans as $loan)
-                <tr>
-                    <td><input type="checkbox"/></td>
-                    <td>{{$loan->name}}</td>
-                    <td>{{$loan->publisher}}</td>
-                    <td>{{$loan->author}}</td>
-                    <td>{{$loan->num}}</td>
-                    <td>
-                        <div class="am-btn-toolbar">
-                            <div class="am-btn-group am-btn-group-xs">
-                                <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" href=""><span
-                                            class="am-icon-pencil-square-o"></span></a>
-                                <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round" href=""><span
-                                            class="am-icon-trash-o"></span></a>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>{{$loan->name}}</td>
+                        <td>{{$loan->publisher}}</td>
+                        <td>{{$loan->author}}</td>
+                        <td>{{$loan->num}}</td>
+                        <td class="am-hide-sm-only">{{$loan->created_at}}</td>
+                        <td>
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round" href="unloan/{{$loan->book_id}}/{{strtotime($loan->created_at)}}" title="还书"><span
+                                                class="am-icon-trash-o"></span></a>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
             @endforeach
             </tbody>
         </table>
