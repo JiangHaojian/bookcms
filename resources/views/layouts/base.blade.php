@@ -97,12 +97,12 @@
         <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;">
             @if(Auth::user())
                 欢迎你：{{Auth::user()->name}}
-                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"><a href="/logout">退出</a></button>
+                <a type="button" class="am-btn am-btn-default am-radius am-btn-xs" href="/logout">退出</a>
             @else
                 &nbsp;&nbsp;&nbsp;
-                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"><a href="/login">登录</a></button>
+                <a type="button" class="am-btn am-btn-default am-radius am-btn-xs" href="/login">登录</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"><a href="/register">注册</a></button>
+                <a type="button" class="am-btn am-btn-default am-radius am-btn-xs" href="/register">注册</a>
             @endif
         </div>
         <div class="sideMenu">
@@ -121,7 +121,7 @@
             </ul>
             <h3 class="am-icon-gears"><em></em> <a href="#">系统设置</a></h3>
             <ul>
-                <li>个人中心</li>
+                <li><a href="/userinfo">个人中心</a></li>
             </ul>
         </div>
         <!-- sideMenu End -->

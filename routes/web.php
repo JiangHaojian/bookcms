@@ -39,3 +39,5 @@ Route::group(['middleware' => ['auth'],'namespace'=>'Auth'],function (){
 Route::get('/userlist', 'UserController@userlist');
 Route::get('/uplevel/{id}', 'UserController@uplevel');
 Route::get('/downlevel/{id}', 'UserController@downlevel');
+Route::get('/userinfo', 'UserController@userinfo');
+Route::post('/saveuser', 'UserController@saveuser');
