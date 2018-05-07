@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Amaze UI Admin index Examples</title>
-    <meta name="description" content="这是一个 index 页面">
+    <title>Bookcms</title>
+    <meta name="description" content="Bookcms">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
@@ -46,7 +46,7 @@
 
 
                     <li><a href="#">未激活会员 <span class="am-badge am-badge-danger am-round">556</span></a></li>
-                    <li><a href="#">未激活代理 <span class="am-badge am-badge-danger am-round">69</span></a></a></li>
+                    <li><a href="#">未激活代理 <span class="am-badge am-badge-danger am-round">69</span></a></li>
                     <li><a href="#">未处理汇款</a></li>
                     <li><a href="#">未发放提现</a></li>
                     <li><a href="#">未发货订单</a></li>
@@ -60,11 +60,9 @@
 
             <li class="kuanjie">
 
-                <a href="#">会员管理</a>
-                <a href="#">奖金管理</a>
-                <a href="#">订单管理</a>
-                <a href="#">产品管理</a>
-                <a href="#">个人中心</a>
+                <a href="#">书籍管理</a>
+                <a href="#">借阅管理</a>
+                <a href="#">用户管理</a>
                 <a href="#">系统设置</a>
             </li>
 
@@ -74,8 +72,7 @@
 
                     <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}">
                         <option value="b">全部</option>
-                        <option value="o">产品</option>
-                        <option value="o">会员</option>
+                        <option value="o">未借阅</option>
 
                     </select>
 
@@ -113,10 +110,6 @@
             <ul>
                 <li><a href="/booklist">书籍列表</a></li>
                 <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/addbook">添加书籍</a></li>
-                <li>商品分类</li>
-                <li>用户评论</li>
-                <li>商品回收站</li>
-                <li>库存管理 </li>
             </ul>
             <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 借阅管理</a></h3>
             <ul>
@@ -126,25 +119,9 @@
             <ul>
                 <li><a href="/userlist">用户列表</a> </li>
             </ul>
-            <h3 class="am-icon-volume-up"><em></em> <a href="#">信息通知</a></h3>
-            <ul>
-                <li>站内消息 /留言 </li>
-                <li>短信</li>
-                <li>邮件</li>
-                <li>微信</li>
-                <li>客服</li>
-            </ul>
             <h3 class="am-icon-gears"><em></em> <a href="#">系统设置</a></h3>
             <ul>
-                <li>数据备份</li>
-                <li>邮件/短信管理</li>
-                <li>上传/下载</li>
-                <li>权限</li>
-                <li>网站设置</li>
-                <li>第三方支付</li>
-                <li>提现 /转账 出入账汇率</li>
-                <li>平台设置</li>
-                <li>声音文件</li>
+                <li>个人中心</li>
             </ul>
         </div>
         <!-- sideMenu End -->
@@ -175,9 +152,9 @@
         <div class="daohang">
             <ul>
                 <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs"><a href="/">首页</a></button></li>
-                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">帮助中心<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
-                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">奖金管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
-                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">产品管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">书籍列表<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">借还书籍<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">用户管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
 
 
             </ul>
