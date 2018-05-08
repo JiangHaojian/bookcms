@@ -52,8 +52,15 @@
                         <td class="am-hide-sm-only">{{$loan->created_at}}</td>
                         <td>
                             <div class="am-btn-toolbar">
+                                <script>
+                                    function unloan(id,time) {
+                                        if(confirm('是否还书'))
+                                            window.location.href = '/unloan/' + id + '/' + time;
+                                        return;
+                                    }
+                                </script>
                                 <div class="am-btn-group am-btn-group-xs">
-                                    <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round" href="unloan/{{$loan->book_id}}/{{strtotime($loan->created_at)}}" title="还书"><span
+                                    <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round" onclick="unloan({{$loan->book_id}},{{strtotime($loan->created_at)}})" title="还书"><span
                                                 class="am-icon-trash-o"></span></a>
                                 </div>
                             </div>
