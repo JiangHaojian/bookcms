@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('type')->default(2)->comment('用户权限类型:0超管1管理员2用户');
             $table->rememberToken();
             $table->timestamps();
+            $table->timestamp('login_at')->nullable()->comment('最后登录时间');
         });
     }
 

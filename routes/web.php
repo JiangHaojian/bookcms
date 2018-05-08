@@ -13,9 +13,7 @@
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'IndexController@index');
 Route::get('/booklist', 'BookController@booklist');
 Route::get('/loanlist', function () {
     return view('layouts/loanlist');
@@ -41,3 +39,5 @@ Route::get('/uplevel/{id}', 'UserController@uplevel');
 Route::get('/downlevel/{id}', 'UserController@downlevel');
 Route::get('/userinfo', 'UserController@userinfo');
 Route::post('/saveuser', 'UserController@saveuser');
+Route::get('/updatedate', 'UserController@updatedate');
+Route::post('/searchbook', 'BookController@searchbook');

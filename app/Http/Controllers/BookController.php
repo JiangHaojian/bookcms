@@ -59,7 +59,10 @@ class BookController extends Controller
     }
 
     public function loanlist(){
-        $loans = Loan::join('books','loans.book_id','=','books.book_id')->where('uid','=',Auth::user()->id)->select('loans.book_id','name','publisher','author','num','loans.created_at')->get();
+        if(isset(Auth::user()->id))
+            $loans = Loan::join('books','loans.book_id','=','books.book_id')->where('uid','=',Auth::user()->id)->select('loans.book_id','name','publisher','author','num','loans.created_at')->get();
+        else
+            $loans = Loan::join('books','loans.book_id','=','books.book_id')->where('uid','=',0)->select('loans.book_id','name','publisher','author','num','loans.created_at')->get();
         return view('layouts.loanlist')->with('loans',$loans);
     }
 
@@ -89,4 +92,17 @@ class BookController extends Controller
         $loan->delete();
         return redirect('loanlist');
     }
+
+    public function searchbook(Request $request){
+        $data = $request->all();
+        if($data['search'] == null)
+            redirect('/');
+        if ($data['type'] == 'all')
+            $books = Book::where('name','like','%'.$data['search'].'%')->get();
+        if ($data['type'] == 'havestock')
+            $books = Book::where('name','like','%'.$data['search'].'%')
+            ->where('stock','>',0)->get();
+        return view('layouts.searchbooklist')->with('books',$books);
+    }
+
 }

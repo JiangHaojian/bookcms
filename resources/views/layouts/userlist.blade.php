@@ -1,14 +1,14 @@
 @extends('layouts.base')
 @section('admin-biaogelist')
     <div class="listbiaoti am-cf">
-        <ul class="am-icon-users"> 会员管理</ul>
+        <ul class="am-icon-users"> 用户管理</ul>
 
-        <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">商品列表</a></dl>
+        <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">用户列表</a></dl>
 
-        <dl>
-            <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"> 手动添加会员</button>
-        </dl>
-        <!--这里打开的是新页面-->
+    {{--<dl>--}}
+    {{--<button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"> 手动添加会员</button>--}}
+    {{--</dl>--}}
+    <!--这里打开的是新页面-->
 
 
     </div>
@@ -59,17 +59,19 @@
                     <td>
                         <div class="am-btn-toolbar">
                             <div class="am-btn-group am-btn-group-xs">
-                                @if(Auth::user()->type == 0)
-                                    @if($user->type != 0)
-                                        <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"
-                                           data-am-modal="{target: '#my-popups'}" title="提升权限"
-                                           href="/uplevel/{{$user->id}}"><span
-                                                    class="am-icon-pencil-square-o"></span></a>
-                                        @if(Auth::user()->type == 0)
-                                            <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round"
-                                               title="删除权限" href="/downlevel/{{$user->id}}">
-                                                <span class="am-icon-trash-o"></span>
-                                            </a>
+                                @if(isset(Auth::user()->type))
+                                    @if(Auth::user()->type == 0)
+                                        @if($user->type != 0)
+                                            <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"
+                                               data-am-modal="{target: '#my-popups'}" title="提升权限"
+                                               href="/uplevel/{{$user->id}}"><span
+                                                        class="am-icon-pencil-square-o"></span></a>
+                                            @if(Auth::user()->type == 0)
+                                                <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round"
+                                                   title="删除权限" href="/downlevel/{{$user->id}}">
+                                                    <span class="am-icon-trash-o"></span>
+                                                </a>
+                                            @endif
                                         @endif
                                     @endif
                                 @endif

@@ -1,17 +1,13 @@
 @extends('layouts.base')
 @section('admin-biaogelist')
     <div class="listbiaoti am-cf">
-        <ul class="am-icon-flag on"> 书籍列表</ul>
+        <ul class="am-icon-flag on"> 栏目名称</ul>
 
-        <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">书籍列表</a></dl>
+        <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">商品列表</a></dl>
 
-        @if(isset(Auth::user()->id))
-            <dl>
-                <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"
-                        onclick="window.location.href='/addbook'"> 添加书籍
-                </button>
-            </dl>
-        @endif
+        <dl>
+            <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"> 添加产品</button>
+        </dl>
 
 
     </div>
@@ -82,38 +78,33 @@
             <tbody>
 
             @foreach($books as $book)
-                <tr>
-                    <td><input type="checkbox"/></td>
-                    <td>{{$book->book_id}}</td>
-                    <td>{{$book->name}}</td>
-                    <td>{{$book->publisher}}</td>
-                    <td>{{$book->author}}</td>
-                    <td class="am-hide-sm-only">{{$book->language}}</td>
-                    <td>{{$book->stock}}</td>
-                    <td class="am-hide-sm-only">{{$book->desc}}</td>
-                    <td>{{$book->publish_time}}</td>
-                    <td>
-                        @if(isset($book->img))
-                            <img src="{{$book->img}}" width="20px" height="20px">
-                        @endif
-                    </td>
-                    <td>
-                        @if(isset(Auth::user()->id))
-                            <div class="am-btn-toolbar">
-                                <div class="am-btn-group am-btn-group-xs">
-                                    <a class="am-btn am-btn-default am-btn-xs am-text-success am-round" title="借阅"
-                                       href="/loan/{{$book->book_id}}"><span class="am-icon-search"></span> </a>
-                                    <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"
-                                       href="/editbook/{{$book->book_id}}" title="编辑"><span
-                                                class="am-icon-pencil-square-o"></span></a>
-                                    <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round"
-                                       href="/deletebook/{{$book->book_id}}" title="删除"><span
-                                                class="am-icon-trash-o"></span></a>
-                                </div>
-                            </div>
-                        @endif
-                    </td>
-                </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>{{$book->book_id}}</td>
+                <td>{{$book->name}}</td>
+                <td>{{$book->publisher}}</td>
+                <td>{{$book->author}}</td>
+                <td class="am-hide-sm-only">{{$book->language}}</td>
+                <td>{{$book->stock}}</td>
+                <td class="am-hide-sm-only">{{$book->desc}}</td>
+                <td>{{$book->publish_time}}</td>
+                <td>
+                    @if(isset($book->img))
+                        <img src="{{$book->img}}" width="20px" height="20px">
+                    @endif
+                </td>
+                <td>
+                    <div class="am-btn-toolbar">
+                        <div class="am-btn-group am-btn-group-xs">
+                            <a class="am-btn am-btn-default am-btn-xs am-text-success am-round" title="借阅" href="/loan/{{$book->book_id}}"><span class="am-icon-search"></span> </a>
+                            <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" href="/editbook/{{$book->book_id}}" title="编辑"><span
+                                        class="am-icon-pencil-square-o"></span></a>
+                            <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round" href="/deletebook/{{$book->book_id}}" title="删除"><span
+                                        class="am-icon-trash-o"></span></a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
             @endforeach
             </tbody>
         </table>

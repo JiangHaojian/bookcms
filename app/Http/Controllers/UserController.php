@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    public function updatedate(){
+        $user = User::find(Auth::user()->id);
+        $user->login_at = date('Y-m-d H:i:s',time());
+        $user->update();
+        return redirect('/');
+    }
+
     public function userlist(){
         $users = User::all();
         return view('layouts.userlist')->with('users',$users);
@@ -45,4 +53,6 @@ class UserController extends Controller
         $user->update();
         return redirect('userlist');
     }
+
+
 }
