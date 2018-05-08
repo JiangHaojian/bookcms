@@ -68,6 +68,12 @@ class BookController extends Controller
         $loan->uid = Auth::user()->id;
         $loan->book_id = $id;
         $loan->num = 1;
+        $book = Book::where('book_id',$id)->first();
+        $stock = $book->stock;
+        if ($stock == 0)
+            return redirect('loanlist');
+        $book->stock = $stock - 1;
+        $book->update();
         $loan->save();
         return redirect('loanlist');
     }
@@ -76,6 +82,10 @@ class BookController extends Controller
         $loan = Loan::where('book_id',$id)
             ->where('created_at',date('Y-m-d H:i:s',$time))
             ->first();
+        $book = Book::where('book_id',$id)->first();
+        $stock = $book->stock;
+        $book->stock = $stock + 1;
+        $book->update();
         $loan->delete();
         return redirect('loanlist');
     }
